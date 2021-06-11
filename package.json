@@ -1,0 +1,22 @@
+{
+  "name": "@automatedtf/slate",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/automatedtf/slate.git"
+  },
+  "author": "Mengh.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/automatedtf/slate/issues"
+  },
+  "homepage": "https://github.com/automatedtf/slate#readme",
+  "dependencies": {
+    "@automatedtf/catalog": "^0.0.12"
+  }
+}
