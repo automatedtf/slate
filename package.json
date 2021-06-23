@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/automatedtf/slate#readme",
   "dependencies": {
-    "@automatedtf/catalog": "^0.0.12"
+    "@automatedtf/catalog": "^0.0.12",
+    "@automatedtf/sherpa": "^0.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.4"
   }
 }
