@@ -1,3 +1,5 @@
+import { EconItem } from "@automatedtf/catalog";
+
 export interface IItemInstance {
     appid: number;
     assetid: string;
@@ -7,19 +9,31 @@ export interface IItemInstance {
     sku: string;
 }
 
-export interface OfferArtifact {
+export interface EconOffer {
     id?: string;
-    sender: string;
-    receipient: string;
-    message?: string;
+    partner: string;
+    manager: { steamID: string }
+    isOurOffer: boolean;
     state: OfferState;
-    itemsSending: IItemInstance[]; // Items being sent away from sender
-    itemsReceiving: IItemInstance[]; // Items being received to the sender
+    itemsToGive: EconItem[];
+    itemsToReceive: EconItem[];
     created: number;
+    message?: string;
     updated: number;
     expires: number;
     escrowEnds?: number;
 }
+
+export type OfferArtifact = Pick<
+    EconOffer,
+    "id" | "message" | "state" | "created" | "updated" |
+    "expires" | "escrowEnds"
+> & {
+    sender: string;
+    recipient: string;
+    itemsSending: IItemInstance[]; // Items being sent away from sender
+    itemsReceiving: IItemInstance[]; // Items being received to the sender
+} 
 
 // Copied from https://github.com/DoctorMcKay/node-steam-tradeoffer-manager/blob/master/resources/ETradeOfferState.js
 export enum OfferState {
