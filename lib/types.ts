@@ -37,18 +37,21 @@ export interface TradeOffer {
     state: OfferState;
     itemsToGive: TradeItem[];
     itemsToReceive: TradeItem[];
-    created: number;
+    created: string;
     message?: string;
-    updated: number;
-    expires: number;
-    escrowEnds?: number;
+    updated: string;
+    expires: string;
+    escrowEnds?: string;
 }
 
 export type OfferArtifact = Pick<
     TradeOffer, 
-    "id" | "message" | "state" | "updated" |
-    "created" | "expires" | "escrowEnds"
+    "id" | "message" | "state"
 > & {
+    created: number;
+    updated: number;
+    expires: number;
+    escrowEnds?: number;
     sender: string;
     recipient: string;
     itemsSending: IItemInstance[]; // Items being sent away from sender

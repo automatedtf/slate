@@ -20,8 +20,9 @@ export async function parseToOfferArtifact(steamid: string, offer: TradeOffer): 
         state: offer.state,
         itemsSending: offer.itemsToGive.map(item => ourBackpack.getItemByAssetId(item.assetid)),
         itemsReceiving: offer.itemsToReceive.map(item => theirBackpack.getItemByAssetId(item.assetid)),
-        created: offer.created,
-        updated: offer.updated,
-        expires: offer.expires
+        created: new Date(offer.created).getTime() / 1000,
+        updated: new Date(offer.updated).getTime() / 1000,
+        expires: new Date(offer.expires).getTime() / 1000,
+        escrowEnds: offer.escrowEnds ? (new Date(offer.escrowEnds).getTime() / 1000) : null
     };
 }
