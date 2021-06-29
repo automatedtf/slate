@@ -1,5 +1,3 @@
-import { EconItem } from "@automatedtf/catalog";
-
 export interface IItemInstance {
     appid: number;
     assetid: string;
