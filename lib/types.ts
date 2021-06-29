@@ -11,8 +11,8 @@ export interface IItemInstance {
 
 export interface EconOffer {
     id?: string;
-    partner: string;
-    manager: { steamID: string }
+    steamid: { accountid: number };
+    partner: { accountid: number };
     isOurOffer: boolean;
     state: OfferState;
     itemsToGive: EconItem[];
