@@ -7,8 +7,8 @@ export async function parseToOfferArtifact(steamid: string, offer: TradeOffer): 
     let partner: string = SteamID.fromIndividualAccountID(offer.partner.accountid).getSteamID64();
 
     try {
-        if (offer.itemsToGive.length != 0) ourBackpack = await getTF2Backpack(partner);
-        if (offer.itemsToReceive.length != 0) theirBackpack = await getTF2Backpack(offer.partner.accountid);
+        if (offer.itemsToGive.length != 0) ourBackpack = await getTF2Backpack(steamid);
+        if (offer.itemsToReceive.length != 0) theirBackpack = await getTF2Backpack(partner);
     } catch (error) {
         // TODO: error catch on private backpack
     }
