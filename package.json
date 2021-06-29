@@ -19,7 +19,8 @@
   "homepage": "https://github.com/automatedtf/slate#readme",
   "dependencies": {
     "@automatedtf/catalog": "^0.0.12",
-    "@automatedtf/sherpa": "^0.0.3"
+    "@automatedtf/sherpa": "^0.0.3",
+    "steamid": "^1.1.3"
   },
   "devDependencies": {
     "typescript": "^4.3.4"

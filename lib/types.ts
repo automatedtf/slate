@@ -9,14 +9,36 @@ export interface IItemInstance {
     sku: string;
 }
 
-export interface EconOffer {
+export interface TradeItem {
+    appid: number;
+    contextid: string;
+    assetid: string;
+    classid: string;
+    instanceid: string;
+    amount: number;
+    missing: boolean;
+    id: string;
+    fraudwarnings: any[],
+    descriptions: any[],
+    owner_descriptions: any[],
+    actions: any[],
+    owner_actions: any[],
+    market_actions: any[],
+    tags: any[],
+    tradable: boolean,
+    marketable: boolean,
+    commodity: boolean,
+    market_tradable_restriction: number,
+    market_marketable_restriction: number
+}
+
+export interface TradeOffer {
     id?: string;
-    steamid: { accountid: number };
-    partner: { accountid: number };
+    partner: { accountid: number};
     isOurOffer: boolean;
     state: OfferState;
-    itemsToGive: EconItem[];
-    itemsToReceive: EconItem[];
+    itemsToGive: TradeItem[];
+    itemsToReceive: TradeItem[];
     created: number;
     message?: string;
     updated: number;
@@ -25,9 +47,9 @@ export interface EconOffer {
 }
 
 export type OfferArtifact = Pick<
-    EconOffer,
-    "id" | "message" | "state" | "created" | "updated" |
-    "expires" | "escrowEnds"
+    TradeOffer, 
+    "id" | "message" | "state" | "updated" |
+    "created" | "expires" | "escrowEnds"
 > & {
     sender: string;
     recipient: string;
