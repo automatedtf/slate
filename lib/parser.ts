@@ -1,6 +1,14 @@
-import { OfferArtifact, TradeOffer } from './types';
-import { Backpack, getTF2Backpack } from '@automatedtf/sherpa';
+import { OfferArtifact, TradeOffer, IItemInstance } from './types';
+import { Backpack, getTF2Backpack, ItemInstance } from '@automatedtf/sherpa';
 const SteamID = require("steamid");
+
+function extractIItemInterface(item: ItemInstance): IItemInstance {
+    const keys: Array<keyof IItemInstance> = ["appid", "assetid", "classid", "icon_url", "instanceid", "sku"];
+    
+    let instance = {};
+    for (let key of keys) instance[key] = item[key];
+    return instance as IItemInstance;
+}
 
 export async function parseToOfferArtifact(steamid: string, offer: TradeOffer): Promise<OfferArtifact> {
     let ourBackpack: Backpack, theirBackpack: Backpack;
@@ -18,8 +26,12 @@ export async function parseToOfferArtifact(steamid: string, offer: TradeOffer): 
         sender: offer.isOurOffer ? steamid : partner,
         recipient: offer.isOurOffer ? partner : steamid,
         state: offer.state,
-        itemsSending: offer.itemsToGive.map(item => ourBackpack.getItemByAssetId(item.assetid)),
-        itemsReceiving: offer.itemsToReceive.map(item => theirBackpack.getItemByAssetId(item.assetid)),
+        itemsSending: offer.itemsToGive
+            .map(item => ourBackpack.getItemByAssetId(item.assetid))
+            .map(extractIItemInterface),
+        itemsReceiving: offer.itemsToReceive
+            .map(item => theirBackpack.getItemByAssetId(item.assetid))
+            .map(extractIItemInterface),
         created: new Date(offer.created).getTime() / 1000,
         updated: new Date(offer.updated).getTime() / 1000,
         expires: new Date(offer.expires).getTime() / 1000,
