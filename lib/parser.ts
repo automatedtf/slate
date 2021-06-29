@@ -1,6 +1,6 @@
 import { OfferArtifact, TradeOffer } from './types';
 import { Backpack, getTF2Backpack } from '@automatedtf/sherpa';
-import SteamID from "steamid";
+const SteamID = require("steamid");
 
 export async function parseToOfferArtifact(steamid: string, offer: TradeOffer): Promise<OfferArtifact> {
     let ourBackpack: Backpack, theirBackpack: Backpack;

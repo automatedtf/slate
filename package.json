@@ -23,6 +23,7 @@
     "steamid": "^1.1.3"
   },
   "devDependencies": {
+    "@types/node": "^15.12.5",
     "typescript": "^4.3.4"
   }
 }
