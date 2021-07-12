@@ -1,20 +1,21 @@
 # Slate
 
-`👷 Work in Progress`
-
-### **Table of Contents**
-- **Introduction**
-- **Usage**
-- **Types**
-
+### 📖 Table of Contents
+- [👋 Introduction](#-introduction)
+- [🔌 Getting Started](#-getting-started)
+- [📚 Helpful Resources](#-helpful-resources)
 ## Introduction
 
-Slate is a simple modular library to represent Steam trade offers or `TradeOffer` from `steam-tradeoffer-manager` using `@automatedtf/sherpa` in a standardised format.
+Slate is a simple modular library to represent Steam trade offers using [`@automatedtf/sherpa`](https://github.com/automatedtf/sherpa) in a standardised format called an `OfferArtifact`.
 
-This takes the `TradeOffer` object and either asks for additional fields (such as `steamid` of the client) or will populate item-related fields itself using `@automatedtf/sherpa`.
+This is done by taking the `TradeOffer` object from [`steam-tradeoffer-manager`](https://github.com/DoctorMcKay/node-steam-tradeoffer-manager) and (minimally) populating the item-related fields to describe an item instance's semantic details using Sherpa.
 
-## Usage
-`🔨 TODO`
+## 🔌 Getting Started
+`🚧 TODO 🚧`
 
-## Types
-`🔨 TODO`
+
+
+
+## 📚 Helpful Resources
+- [@automatedtf/sherpa](https://github.com/automatedtf/sherpa)
+- [steam-tradeoffer-manager](https://github.com/DoctorMcKay/node-steam-tradeoffer-manager)
