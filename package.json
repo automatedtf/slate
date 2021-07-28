@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/automatedtf/slate#readme",
   "dependencies": {
-    "@automatedtf/sherpa": "^0.0.4",
+    "@automatedtf/sherpa": "^0.0.5",
     "steamid": "^1.1.3"
   },
   "devDependencies": {

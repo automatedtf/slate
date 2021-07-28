@@ -5,7 +5,7 @@
 - [🔌 Getting Started](#-getting-started)
     - [Parsing to an OfferArtifact](#parsing-to-an-offerartifact)
     - [The OfferArtifact Type](#the-offerartifact-type)
-    - [IItemInstance](#iiteminstance)
+    - [ItemInstance](#iteminstance)
     - [Information Population with Sherpa](#information-population-with-sherpa)
 - [📚 Helpful Resources](#-helpful-resources)
 ## Introduction
@@ -48,15 +48,15 @@ type OfferArtifact = {
     escrowEnds?: number; // time escrow complete (unix timestamp)
     sender: string; // steamid of sender
     recipient: string; // steamid of recipient
-    itemsSending: IItemInstance[]; // Items being sent away from sender
-    itemsReceiving: IItemInstance[]; // Items being received to the sender
+    itemsSending: ItemInstance[]; // Items being sent away from sender
+    itemsReceiving: ItemInstance[]; // Items being received to the sender
 } 
 ```
-### IItemInstance
-The `itemsSending` and `itemsReceiving` field of `OfferArtifact` are both arrays of objects of the interface `IItemInstance`. This is an interface that mimics the fields of `ItemInstance` from [`@automatedtf/sherpa`](https://github.com/automatedtf/sherpa) through the internal function `extractIItemInterface`.
+### ItemInstance
+The `itemsSending` and `itemsReceiving` field of `OfferArtifact` are both arrays of objects of the interface `ItemInstance`. This is an interface that is derived from [`@automatedtf/sherpa`](https://github.com/automatedtf/sherpa).
 
 ```typescript
-interface IItemInstance {
+interface ItemInstance {
     appid: number;
     assetid: string;
     instanceid: string;
@@ -90,8 +90,9 @@ interface TradeItem {
 This may be insufficient to developers who may like e.g the `icon_url` of an item to quickly display the item visually on their website without making further API calls on-the-fly.
 
 This is resolved by taking the `TradeOffer` object from and extracting the 
-least but necessary fields of a `TradeItem` into an `ItemInstance`, where Sherpa will represent item types and customisations as a single-string `SKU`. Slate then turns this into the data object `IItemInstance` when parsing to an `OfferArtifact`.
+least but necessary fields of a `TradeItem` into an `ItemInstance` by using `Catalog` to represent item types and customisations as a single-string `SKU` and `Sherpa` to provide item instance information. This is all done as a `TradeOffer` is parsed to an `OfferArtifact`.
 
 ## 📚 Helpful Resources
 - [@automatedtf/sherpa](https://github.com/automatedtf/sherpa)
+- [@automatedtf/catalog](https://github.com/automatedtf/catalog)
 - [steam-tradeoffer-manager](https://github.com/DoctorMcKay/node-steam-tradeoffer-manager)

@@ -1,12 +1,4 @@
-export interface IItemInstance {
-    appid: number;
-    assetid: string;
-    instanceid: string;
-    classid: string;
-    icon_url: string;
-    sku: string;
-}
-
+import { ItemInstance } from '@automatedtf/sherpa';
 export interface TradeItem {
     appid: number;
     contextid: string;
@@ -54,8 +46,8 @@ export type OfferArtifact = Pick<
     escrowEnds?: number;
     sender: string;
     recipient: string;
-    itemsSending: IItemInstance[]; // Items being sent away from sender
-    itemsReceiving: IItemInstance[]; // Items being received to the sender
+    itemsSending: ItemInstance[]; // Items being sent away from sender
+    itemsReceiving: ItemInstance[]; // Items being received to the sender
 } 
 
 // Copied from https://github.com/DoctorMcKay/node-steam-tradeoffer-manager/blob/master/resources/ETradeOfferState.js
