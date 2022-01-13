@@ -1,6 +1,6 @@
 {
   "name": "@automatedtf/slate",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "",
   "main": "out/index.js",
   "types": "out/index.d.ts",
