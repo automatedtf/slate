@@ -63,6 +63,7 @@ interface ItemInstance {
     classid: string;
     icon_url: string;
     sku: string;
+    full_sku: string;
 }
 ```
 
