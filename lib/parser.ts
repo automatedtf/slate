@@ -18,6 +18,7 @@ export async function parseToOfferArtifact(steamid: string, offer: TradeOffer): 
         sender: offer.isOurOffer ? steamid : partner,
         recipient: offer.isOurOffer ? partner : steamid,
         state: offer.state,
+        isOurOffer: offer.isOurOffer,
         itemsSending: offer.itemsToGive
             .map(item => ourBackpack.getItemByAssetId(item.assetid)),
         itemsReceiving: offer.itemsToReceive

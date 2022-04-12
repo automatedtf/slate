@@ -38,7 +38,7 @@ export interface TradeOffer {
 
 export type OfferArtifact = Pick<
     TradeOffer, 
-    "id" | "message" | "state"
+    "id" | "message" | "state" | "isOurOffer"
 > & {
     created: number;
     updated: number;
