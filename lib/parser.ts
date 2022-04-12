@@ -10,7 +10,8 @@ export async function parseToOfferArtifact(steamid: string, offer: TradeOffer): 
         if (offer.itemsToGive.length != 0) ourBackpack = await getTF2Backpack(steamid);
         if (offer.itemsToReceive.length != 0) theirBackpack = await getTF2Backpack(partner);
     } catch (error) {
-        // TODO: error catch on private backpack
+        // throw error on private backpack
+        throw new Error("This user most likely has their inventory to set as private. Unable to populate item details.");
     }
     
     return {
